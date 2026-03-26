@@ -497,6 +497,57 @@ a {
     margin-bottom: 0;
 }
 
+
+/* Certifications Section */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.cert-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.cert-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.1);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.cert-card:hover .cert-placeholder {
+    transform: scale(1.05);
+    border-color: rgba(52, 211, 153, 0.4);
+}
+
+.cert-title {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+}
+
+.cert-issuer {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
 /* Contact Section */
 .cta-btn {
     display: inline-block;
