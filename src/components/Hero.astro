@@ -9,11 +9,11 @@ import { hero } from "../lib/data";
 
 <div id="top" class="relative pt-28 pb-16 md:pt-36 md:pb-24">
   <div class="mx-auto max-w-7xl grid grid-cols-1 gap-12 px-6 md:grid-cols-[1.4fr_1fr] md:gap-16 md:px-12">
-    <BlurFade client:visible inView={false}>
+    <BlurFade client:visible inView={false} duration={0.7} offset={10} blur="5px">
       <p class="mb-5 font-body text-[0.72rem] tracking-[0.1em] text-muted-foreground uppercase">
         {hero.eyebrow}
       </p>
-      <h1 class="mb-6 font-display text-6xl md:text-8xl leading-[1.05] text-foreground">
+      <h1 class="mb-6 font-display text-6xl md:text-8xl leading-[1.05] shine">
         {hero.name}
       </h1>
       <p class="prose-measure mb-8 text-[1.15rem] leading-[1.65] text-foreground" set:html={highlight(hero.lede)} />
@@ -24,9 +24,11 @@ import { hero } from "../lib/data";
         ))}
       </ul>
 
-      <a href={hero.ctaHref} class={buttonVariants()}>
-        {hero.ctaLabel}
-      </a>
+      <BlurFade client:visible inView={false} delay={0.25} duration={0.6} offset={8} blur="4px">
+        <a href={hero.ctaHref} class={buttonVariants()}>
+          {hero.ctaLabel}
+        </a>
+      </BlurFade>
     </BlurFade>
 
     <div class="flex items-start justify-center md:justify-end">

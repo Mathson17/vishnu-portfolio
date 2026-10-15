@@ -13,9 +13,21 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap(),
-    robotsTxt(),
+    robotsTxt({
+      sitemap: ['https://vishnuvnair.com/sitemap-index.xml'],
+      policy: [
+        {
+          userAgent: '*',
+          allow: '/',
+        },
+      ],
+    }),
     playformCompress(),
-    swup(),
+    swup({
+      theme: 'fade',
+      smoothScrolling: true,
+      animationClass: 'transition-',
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],

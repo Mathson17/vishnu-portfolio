@@ -10,28 +10,28 @@ import { ArrowRight } from "lucide-react";
   <div class="mx-auto max-w-7xl">
     <BlurFade client:visible inView>
       <p class="mb-3 font-body text-[0.72rem] tracking-[0.1em] text-muted-foreground uppercase">{story.eyebrow}</p>
-      <h2 class="mb-16 font-display text-5xl md:text-7xl text-foreground">{story.heading}</h2>
+      <h2 class="mb-16 font-display text-5xl md:text-7xl shine">{story.heading}</h2>
     </BlurFade>
 
     <div class="flex flex-col gap-20 md:gap-28">
-      <BlurFade client:visible inView className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div class="prose-measure">
+      <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <BlurFade client:visible inView duration={0.7} offset={10} blur="5px" className="prose-measure">
           <p class="mb-6 text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.intro)} />
           <h3 class="mt-10 mb-4 font-body text-[0.78rem] font-semibold tracking-[0.06em] text-foreground uppercase">
             {story.roleHeading}
           </h3>
           <p class="text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.roleText)} />
-        </div>
-        <div class="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:justify-self-end md:max-w-[380px]">
+        </BlurFade>
+        <BlurFade client:visible inView delay={0.15} duration={0.8} offset={14} blur="6px" className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:justify-self-end md:max-w-[380px]">
           <img src="/hero.jpg" alt="Vishnu V Nair" class="h-full w-full object-cover" />
-        </div>
-      </BlurFade>
+        </BlurFade>
+      </div>
 
-      <BlurFade client:visible inView className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div class="order-2 aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:order-1 md:max-w-[380px]">
+      <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <BlurFade client:visible inView duration={0.8} offset={14} blur="6px" className="order-2 aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:order-1 md:max-w-[380px]">
           <img src="/hero.jpg" alt="Vishnu V Nair" class="h-full w-full object-cover" />
-        </div>
-        <div class="prose-measure order-1 md:order-2 md:justify-self-end">
+        </BlurFade>
+        <BlurFade client:visible inView delay={0.15} duration={0.7} offset={10} blur="5px" className="prose-measure order-1 md:order-2 md:justify-self-end">
           <h3 class="mb-4 font-body text-[0.78rem] font-semibold tracking-[0.06em] text-foreground uppercase">
             {story.pillarsHeading}
           </h3>
@@ -44,11 +44,11 @@ import { ArrowRight } from "lucide-react";
             ))}
           </dl>
           <p class="text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.positioning)} />
-        </div>
-      </BlurFade>
+        </BlurFade>
+      </div>
 
-      <BlurFade client:visible inView className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div class="prose-measure">
+      <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <BlurFade client:visible inView duration={0.7} offset={10} blur="5px" className="prose-measure">
           <h3 class="mb-4 font-body text-[0.78rem] font-semibold tracking-[0.06em] text-foreground uppercase">
             {story.outlookHeading}
           </h3>
@@ -57,11 +57,11 @@ import { ArrowRight } from "lucide-react";
           <a href={story.closingLinkHref} class={buttonVariants()}>
             {story.closingLinkLabel} <ArrowRight className="ml-2 h-4 w-4" />
           </a>
-        </div>
-        <div class="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:justify-self-end md:max-w-[380px]">
+        </BlurFade>
+        <BlurFade client:visible inView delay={0.15} duration={0.8} offset={14} blur="6px" className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:justify-self-end md:max-w-[380px]">
           <img src="/hero.jpg" alt="Vishnu V Nair at work" class="h-full w-full object-cover" />
-        </div>
-      </BlurFade>
+        </BlurFade>
+      </div>
     </div>
   </div>
 </section>

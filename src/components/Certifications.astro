@@ -7,18 +7,20 @@ import { credentials } from "../lib/data";
   <div class="mx-auto max-w-7xl">
     <BlurFade client:visible inView>
       <p class="mb-3 font-body text-[0.72rem] tracking-[0.1em] text-muted-foreground uppercase">{credentials.eyebrow}</p>
-      <h2 class="mb-14 font-display text-5xl md:text-7xl text-foreground">{credentials.heading}</h2>
+      <h2 class="mb-14 font-display text-5xl md:text-7xl shine">{credentials.heading}</h2>
+    </BlurFade>
 
-      <div class="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
-        {
-          credentials.items.map((item) => (
+    <div class="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
+      {
+        credentials.items.map((item, i) => (
+          <BlurFade client:visible inView delay={i * 0.08} duration={0.7} offset={8} blur="4px">
             <div class="border-t border-border pt-6">
               <h3 class="mb-1.5 font-display text-[1.15rem] text-foreground">{item.title}</h3>
               <p class="font-body text-[0.78rem] tracking-[0.02em] text-muted-foreground">{item.org}</p>
             </div>
-          ))
-        }
-      </div>
-    </BlurFade>
+          </BlurFade>
+        ))
+      }
+    </div>
   </div>
 </section>

@@ -23,7 +23,7 @@ export default function ContactCTA({
         />
       </div>
       <div className="relative flex flex-col items-center gap-4 text-center">
-        <h2 className="font-display text-3xl tracking-tight text-foreground sm:text-5xl">
+        <h2 className="font-display text-3xl tracking-tight sm:text-5xl shine">
           Get in Touch
         </h2>
         <p className="mx-auto max-w-lg text-muted-foreground">
