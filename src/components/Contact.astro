@@ -1,0 +1,19 @@
+---
+import ContactCTA from "./ContactCTA";
+import { BlurFade } from "./ui/blur-fade";
+import { contact, site } from "../lib/data";
+
+const linkedinUrl = contact.links.find((l) => l.title === "LinkedIn")?.href ?? "https://linkedin.com";
+---
+
+<section id="contact" class="bg-background px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-7xl">
+    <BlurFade client:visible inView>
+      <ContactCTA client:visible linkedinUrl={linkedinUrl} email={site.email} />
+    </BlurFade>
+
+    <footer class="mt-16 flex flex-wrap items-center justify-between gap-4 font-body text-[0.75rem] text-muted-foreground">
+      <span>&copy; {new Date().getFullYear()} {site.name}.</span>
+    </footer>
+  </div>
+</section>

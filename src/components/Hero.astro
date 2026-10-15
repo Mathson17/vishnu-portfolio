@@ -1,0 +1,36 @@
+---
+import Portrait from "./Portrait";
+import { BlurFade } from "./ui/blur-fade";
+import { buttonVariants } from "./ui/button";
+import { highlight } from "../lib/highlight";
+import { hero } from "../lib/data";
+---
+
+
+<div id="top" class="relative pt-28 pb-16 md:pt-36 md:pb-24">
+  <div class="mx-auto max-w-7xl grid grid-cols-1 gap-12 px-6 md:grid-cols-[1.4fr_1fr] md:gap-16 md:px-12">
+    <BlurFade client:visible inView={false}>
+      <p class="mb-5 font-body text-[0.72rem] tracking-[0.1em] text-muted-foreground uppercase">
+        {hero.eyebrow}
+      </p>
+      <h1 class="mb-6 font-display text-6xl md:text-8xl leading-[1.05] text-foreground">
+        {hero.name}
+      </h1>
+      <p class="prose-measure mb-8 text-[1.15rem] leading-[1.65] text-foreground" set:html={highlight(hero.lede)} />
+
+      <ul class="mb-9 flex flex-col gap-2 border-l border-border pl-5 text-[0.95rem] text-foreground">
+        {hero.credentials.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+
+      <a href={hero.ctaHref} class={buttonVariants()}>
+        {hero.ctaLabel}
+      </a>
+    </BlurFade>
+
+    <div class="flex items-start justify-center md:justify-end">
+      <Portrait client:load />
+    </div>
+  </div>
+</div>

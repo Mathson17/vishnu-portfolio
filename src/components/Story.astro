@@ -1,0 +1,67 @@
+---
+import { story } from "../lib/data";
+import { BlurFade } from "./ui/blur-fade";
+import { buttonVariants } from "./ui/button";
+import { highlight } from "../lib/highlight";
+import { ArrowRight } from "lucide-react";
+---
+
+<section id="story" class="bg-background px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-7xl">
+    <BlurFade client:visible inView>
+      <p class="mb-3 font-body text-[0.72rem] tracking-[0.1em] text-muted-foreground uppercase">{story.eyebrow}</p>
+      <h2 class="mb-16 font-display text-5xl md:text-7xl text-foreground">{story.heading}</h2>
+    </BlurFade>
+
+    <div class="flex flex-col gap-20 md:gap-28">
+      <BlurFade client:visible inView className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div class="prose-measure">
+          <p class="mb-6 text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.intro)} />
+          <h3 class="mt-10 mb-4 font-body text-[0.78rem] font-semibold tracking-[0.06em] text-foreground uppercase">
+            {story.roleHeading}
+          </h3>
+          <p class="text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.roleText)} />
+        </div>
+        <div class="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:justify-self-end md:max-w-[380px]">
+          <img src="/hero.jpg" alt="Vishnu V Nair" class="h-full w-full object-cover" />
+        </div>
+      </BlurFade>
+
+      <BlurFade client:visible inView className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div class="order-2 aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:order-1 md:max-w-[380px]">
+          <img src="/hero.jpg" alt="Vishnu V Nair" class="h-full w-full object-cover" />
+        </div>
+        <div class="prose-measure order-1 md:order-2 md:justify-self-end">
+          <h3 class="mb-4 font-body text-[0.78rem] font-semibold tracking-[0.06em] text-foreground uppercase">
+            {story.pillarsHeading}
+          </h3>
+          <dl class="mb-6 flex flex-col gap-5">
+            {story.pillars.map((pillar) => (
+              <div class="border-l border-border pl-5">
+                <dt class="mb-1 font-body text-[0.72rem] tracking-[0.06em] text-primary uppercase">{pillar.label}</dt>
+                <dd class="text-foreground" set:html={highlight(pillar.text)} />
+              </div>
+            ))}
+          </dl>
+          <p class="text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.positioning)} />
+        </div>
+      </BlurFade>
+
+      <BlurFade client:visible inView className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div class="prose-measure">
+          <h3 class="mb-4 font-body text-[0.78rem] font-semibold tracking-[0.06em] text-foreground uppercase">
+            {story.outlookHeading}
+          </h3>
+          <p class="mb-6 text-[1.0625rem] leading-[1.75] text-foreground" set:html={highlight(story.outlookText)} />
+          <p class="mb-8 text-[1.0625rem] leading-[1.75] text-foreground">{story.closing}</p>
+          <a href={story.closingLinkHref} class={buttonVariants()}>
+            {story.closingLinkLabel} <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
+        </div>
+        <div class="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-card md:justify-self-end md:max-w-[380px]">
+          <img src="/hero.jpg" alt="Vishnu V Nair at work" class="h-full w-full object-cover" />
+        </div>
+      </BlurFade>
+    </div>
+  </div>
+</section>

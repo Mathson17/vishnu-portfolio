@@ -1,0 +1,16 @@
+---
+import ExperienceAccordion from "./ExperienceAccordion";
+import { BlurFade } from "./ui/blur-fade";
+import { journey } from "../lib/data";
+---
+
+<section id="journey" class="bg-background px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-7xl">
+    <BlurFade client:visible inView>
+      <p class="mb-3 font-body text-[0.72rem] tracking-[0.1em] text-muted-foreground uppercase">{journey.eyebrow}</p>
+      <h2 class="mb-14 font-display text-5xl md:text-7xl text-foreground">{journey.heading}</h2>
+    </BlurFade>
+
+    <ExperienceAccordion client:visible roles={journey.roles} />
+  </div>
+</section>

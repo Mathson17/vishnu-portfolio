@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+import { SEO } from "astro-seo";
+import BackToTop from "../components/BackToTop";
+import { FlickeringGrid } from "../components/ui/flickering-grid";
+import { seo, site } from "../lib/data";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = seo.title,
+  description = seo.description,
+  image = site.heroImage,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={seo.themeColor} />
+
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalURL.toString()}
+      openGraph={{
+        basic: {
+          title,
+          type: "profile",
+          image: ogImageURL,
+          url: canonicalURL.toString(),
+        },
+        optional: {
+          description,
+          siteName: site.name,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title,
+        description,
+        image: ogImageURL,
+      }}
+      extend={{
+        meta: [{ name: "author", content: site.name }],
+      }}
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: site.name,
+        jobTitle: site.title,
+        worksFor: {
+          "@type": "Organization",
+          name: "IBS Software",
+        },
+        url: canonicalURL,
+        image: ogImageURL,
+        sameAs: seo.sameAs,
+      })}
+    />
+  </head>
+  <body class="relative min-h-screen bg-background text-foreground antialiased">
+    <div class="absolute inset-x-0 top-0 left-0 right-0 z-0 h-[100px] overflow-hidden">
+      <FlickeringGrid
+        client:visible
+        className="h-full w-full"
+        squareSize={2}
+        gridGap={2}
+        color="#5ee5bc"
+        maxOpacity={0.5}
+        style={{
+          maskImage: "linear-gradient(to bottom, black, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+        }}
+      />
+    </div>
+    <div class="relative z-10">
+      <slot />
+    </div>
+    <BackToTop client:visible />
+  </body>
+</html>
