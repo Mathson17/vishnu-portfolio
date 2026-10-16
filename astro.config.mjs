@@ -9,7 +9,8 @@ import swup from '@swup/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vishnuvnair.com',
+  site: 'https://mathson17.github.io',
+  base: '/vishnu-portfolio',
   integrations: [
     react(),
     sitemap(),
