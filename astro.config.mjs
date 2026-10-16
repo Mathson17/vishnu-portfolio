@@ -23,7 +23,7 @@ export default defineConfig({
         },
       ],
     }),
-    playformCompress(),
+    playformCompress({ HTML: false }),
     swup({
       theme: 'fade',
       smoothScrolling: true,
