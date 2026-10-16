@@ -2,7 +2,7 @@ export const site = {
   name: "Vishnu V Nair",
   title: "Head of External Affairs, IBS Software",
   email: "contact@vishnuvnair.com",
-  heroImage: "/hero.jpg",
+  heroImage: "hero.jpg",
 };
 
 export const seo = {

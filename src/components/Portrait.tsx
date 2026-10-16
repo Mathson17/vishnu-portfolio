@@ -29,7 +29,7 @@ export default function Portrait() {
     >
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero.jpg')" }}
+        style={{ backgroundImage: "url('hero.jpg')" }}
       />
     </div>
   );
