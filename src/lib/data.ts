@@ -67,7 +67,7 @@ export const journey = {
       description: "Building **strategic relationships** across government, industry and technology ecosystems.",
     },
     {
-      period: "2025 — 2026",
+      period: "2024 — 2026",
       org: "Government of Kerala (HPIC)",
       title: "Lead IT Strategist",
       description: "**IT strategy**, talent, infrastructure, policy and technology ecosystem development.",
